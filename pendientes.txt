@@ -1,0 +1,8 @@
+falta:
+pasar todo a react/angular
+agregar base de datos para register
+calcular mejores apuestas en cuanto a riesgo-ganancia y mostrarlas al principio
+
+no se si se puede pero:
+que solo puedas logearte en un dispositivo para que no se pasen las cuentas entre amigos
+que no se pueda sacar screenshot en la pagina

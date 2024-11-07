@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Partidos</title>
+</head>
+
+<script>
+    //script super mega chatgpeteado para las particulas del fondo, talvez ni se usa.
+    document.addEventListener("DOMContentLoaded", () => {
+        const canvas = document.getElementById("neon-background");
+        const ctx = canvas.getContext("2d");
+    
+        let particlesArray = [];
+        const colors = ["#39ff14", "#00e5ff", "#ff0", "#f0f"]; // Colores neón para las partículas
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    
+        // Ajustar el tamaño del canvas al cambiar el tamaño de la ventana
+        window.addEventListener("resize", () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    
+        // Crear partículas
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 3 + 1; // Tamaño de la partícula
+                this.color = colors[Math.floor(Math.random() * colors.length)];
+                this.speedX = Math.random() * 2 - 1; // Velocidad en el eje X
+                this.speedY = Math.random() * 2 - 1; // Velocidad en el eje Y
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.size > 0.2) this.size -= 0.02; // Reducir el tamaño para dar efecto de desvanecimiento
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.shadowBlur = 8;
+                ctx.shadowColor = this.color;
+                ctx.fill();
+            }
+        }
+    
+        // Crear un número inicial de partículas
+        function initParticles() {
+            particlesArray = [];
+            for (let i = 0; i < 100; i++) {
+                particlesArray.push(new Particle());
+            }
+        }
+    
+        // Animación de las partículas
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+                particlesArray[i].draw();
+    
+                // Reemplazar la partícula si se vuelve demasiado pequeña
+                if (particlesArray[i].size <= 0.2) {
+                    particlesArray.splice(i, 1);
+                    particlesArray.push(new Particle());
+                }
+            }
+            requestAnimationFrame(animateParticles);
+        }
+    
+        // Inicializar y animar
+        initParticles();
+        animateParticles();
+    });
+</script>
+    
+<body>
+    <h1>Consulta de Partidos</h1>
+    <form action="/consultar" method="post">
+        <label for="liga">Seleccione la liga:</label>
+        <select id="liga" name="liga">
+            <option value="premier-league">Premier League</option>
+            <option value="la-liga">La Liga</option>
+        </select>
+        <label for="fecha">Ingrese el numero de la fecha:</label>
+        <input type="number" id="fecha" name="fecha" min="1" required>
+        <button type="submit">Consultar</button>
+    </form>
+    <canvas id="neon-background"></canvas>
+</body>
+<style>
+    body {
+        background-color: #121212;
+        color: #e0e0e0;
+        font-family: Arial, sans-serif;
+    }
+    h1 {
+        text-align: center;
+        color: #39ff14;
+    }
+    label, input {
+        color: #e0e0e0;
+    }
+    input[type="number"] {
+        background-color: #1e1e1e;
+        border: 1px solid #333;
+        color: #39ff14;
+        padding: 10px;
+        font-size: 1em;
+        margin: 10px 0;
+    }
+    button {
+        background-color: #39ff14;
+        color: #121212;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        font-size: 1em;
+        transition: all 0.3s ease;
+    }
+    button:hover {
+        background-color: #00e5ff;
+        color: #121212;
+    }
+    form {
+        width: 50%;
+        margin: 50px auto;
+        text-align: center;
+        background-color: #1e1e1e;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 8px rgba(0, 255, 255, 0.2);
+    }
+    #neon-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: #121212;
+}
+/* Estilo para el selector de liga */
+label, select {
+    color: #e0e0e0;
+    font-size: 1em;
+}
+
+select {
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+    color: #39ff14;
+    padding: 10px;
+    font-size: 1em;
+    margin: 10px 0;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 8px rgba(57, 255, 20, 0.2); /* Sombra neón */
+}
+
+select:focus {
+    outline: none;
+    border-color: #00e5ff;
+    box-shadow: 0 0 12px rgba(0, 229, 255, 0.6); /* Efecto neón al enfoque */
+}
+
+option {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}
+
+
+</style>
+
+    
+</html>

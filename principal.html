@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataSport Analytics</title>
+
+</head>
+<body>
+    <canvas id="neon-background"></canvas>
+
+    <!-- Landing Section -->
+    <section class="landing" id="inicio">
+        <div>
+            <h1>DataSport Analytics</h1>
+            <p>Somos una empresa especializada en análisis matemático y estadístico avanzado, dedicada a ayudarte a maximizar tus oportunidades de éxito en apuestas deportivas. Nuestro sistema evalúa la probabilidad de victoria de cada equipo y te informa qué casa de apuestas ofrece las mejores cuotas. Con DataSport Analytics, encontrarás los partidos con las mayores probabilidades de ganancia y mejores oportunidades en el mercado.</p>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="divider"></div>
+    <!-- Reviews Section -->
+
+    <div id="reseñas" class="full-width-review">
+        <button class="corner-btn left-btn" onclick="changeReview(-1)">&#10094;</button>
+        <div class="review-text">
+            <h3>Juan Pérez</h3>
+            <div class="stars">★★★★★</div>
+            <p>¡Un lujo total! Gracias a este software, empecé a ganar mucho más en las apuestas. Súper recomendado.</p>
+        </div>
+        <button class="corner-btn right-btn" onclick="changeReview(1)">&#10095;</button>
+    </div>
+
+    <!-- Divider -->
+    <div class="divider"></div>
+    
+    <!-- Contact Section -->
+
+  <center>  <div id="contacto" class="card border-lavender">
+        <div class="discount-header-lavender">50% OFF <span style="text-decoration: line-through; font-size: 14px;">ARS 13.000</span></div>
+        <h3>DataSport Analytics Pro</h3>
+
+        <div class="price">ARS 6.500</div>
+        <button style="background-color: #8e44ad;">Suscribirme</button>
+
+        <hr class="divider">
+
+        <ul class="features">
+            <li>Todas las cuotas actualizadas</li>
+            <li>Información de todos los partidos</li>
+            <li>Análisis de probabilidades de cada equipo</li>
+            <li>Mejores opciones ganancia versus riesgo</li>
+            <li>Recomendaciones basadas en estadísticas</li>
+            <li>Predicciones de partidos de alto rendimiento</li>
+            <li>Soporte y asistencia personalizada</li>
+        </ul>
+    </div></center>
+    <!-- Divider -->
+    <div class="divider"></div>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <nav>
+                <a href="#inicio">Inicio</a>
+                <a href="#reseñas">Reseñas</a>
+                <a href="#contacto">Contáctanos</a>
+            </nav>
+
+
+            
+            <div class="copyright">
+                &copy; 2023 DataSport Analytics. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+
+
+</body>
+
+
+<style>
+    /* General Styles */
+    body {
+        background-color: #121212;
+        color: #e0e0e0;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+    /* Full-Screen Landing Section */
+    .landing {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 90vh;
+        text-align: center;
+        color: #39ff14;
+        position: relative;
+    }
+
+    .landing h1 {
+        font-size: 3em;
+        margin: 0;
+        color: #39ff14;
+        font-weight: bold;
+    }
+
+    .landing p {
+        color: #e0e0e0;
+        font-size: 1.2em;
+        max-width: 600px;
+        margin: 20px auto;
+        line-height: 1.6;
+    }
+
+    /* Divider */
+    .divider {
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(to right, #39ff14, #00e5ff, #ff0);
+        margin: 50px 0;
+    }
+
+    /* Section Titles */
+    .section {
+        padding: 50px 10%;
+        text-align: center;
+    }
+
+    .section h2 {
+        color: #39ff14;
+        font-size: 2em;
+        margin-bottom: 20px;
+    }
+
+    .section p {
+        font-size: 1.1em;
+        color: #e0e0e0;
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.6;
+    }
+
+    /* Contact Form */
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .contact-form input, .contact-form textarea {
+        width: 80%;
+        padding: 10px;
+        margin: 8px 0;
+        border-radius: 5px;
+        border: 1px solid #333;
+        background-color: #212121;
+        color: #00e5ff;
+    }
+
+    .contact-form button {
+        padding: 10px 20px;
+        background-color: #39ff14;
+        color: #121212;
+        border: none;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+        background-color: #00e5ff;
+    }
+    #neon-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: #121212;
+
+}
+.card {
+    background-color: #111;
+    padding: 20px;
+    border-radius: 15px;
+    width: 300px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.card.border-purple {
+    border: 2px solid #9b59b6;
+}
+.card.border-cyan {
+    border: 2px solid #1abc9c;
+}
+.card.border-lavender {
+    border: 2px solid #8e44ad;
+}
+.card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.card .price {
+    font-size: 32px;
+    margin: 15px 0;
+}
+.card button {
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.3s;
+}
+.card button:hover {
+    background-color: white; /* Verde neón más oscuro */
+    transform: scale(1.05); /* Efecto de ampliación */
+}
+
+.card ul {
+    text-align: left;
+    list-style: none;
+    padding: 0;
+}
+.card ul li {
+    margin: 10px 0;
+    font-size: 14px;
+}
+.full-width-review {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    color: white;
+}
+
+.review-text {
+    text-align: center;
+    max-width: 80%;
+}
+
+.stars {
+    font-size: 24px;
+    color: #FFD700;
+    margin-bottom: 10px;
+}
+
+.corner-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: white;
+    font-size: 36px;
+    cursor: pointer;
+    padding: 0 15px;
+    transition: color 0.3s;
+}
+
+.left-btn {
+    left: 50px;
+}
+
+.right-btn {
+    right: 50px;
+}
+
+.corner-btn:hover {
+    color: #9b59b6;
+}
+        /* Footer Styles */
+        footer {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 0.9em;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-content nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-content nav a {
+            color: #00e5ff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .footer-content nav a:hover {
+            color: #39ff14;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            color: #e0e0e0;
+            font-size: 1.2em;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #00e5ff;
+        }
+
+        .copyright {
+            color: #888;
+            font-size: 0.8em;
+            margin-top: 15px;
+        }
+
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .landing h1 {
+            font-size: 2.5em;
+        }
+        .footer-content nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+        .landing p {
+            font-size: 1em;
+        }
+        .review-text {
+        max-width: 90%;
+        }
+        .corner-btn {
+            font-size: 28px;
+        }
+    }
+</style>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const canvas = document.getElementById("neon-background");
+        const ctx = canvas.getContext("2d");
+    
+        let particlesArray = [];
+        const colors = ["#39ff14", "#00e5ff", "#ff0", "#f0f"]; // Colores neón para las partículas
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    
+        // Ajustar el tamaño del canvas al cambiar el tamaño de la ventana
+        window.addEventListener("resize", () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    
+        // Crear partículas
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 3 + 1; // Tamaño de la partícula
+                this.color = colors[Math.floor(Math.random() * colors.length)];
+                this.speedX = Math.random() * 2 - 1; // Velocidad en el eje X
+                this.speedY = Math.random() * 2 - 1; // Velocidad en el eje Y
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.size > 0.2) this.size -= 0.02; // Reducir el tamaño para dar efecto de desvanecimiento
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.shadowBlur = 8;
+                ctx.shadowColor = this.color;
+                ctx.fill();
+            }
+        }
+    
+        // Crear un número inicial de partículas
+        function initParticles() {
+            particlesArray = [];
+            for (let i = 0; i < 100; i++) {
+                particlesArray.push(new Particle());
+            }
+        }
+    
+        // Animación de las partículas
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+                particlesArray[i].draw();
+    
+                // Reemplazar la partícula si se vuelve demasiado pequeña
+                if (particlesArray[i].size <= 0.2) {
+                    particlesArray.splice(i, 1);
+                    particlesArray.push(new Particle());
+                }
+            }
+            requestAnimationFrame(animateParticles);
+        }
+    
+        // Inicializar y animar
+        initParticles();
+        animateParticles();
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const links = document.querySelectorAll('.header nav a');
+    links.forEach(link => {
+        link.addEventListener('click', function (event) {
+            event.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+});
+
+let currentReview = 0;
+const reviews = [
+    { name: "Juan Pérez", stars: "★★★★★", text: "¡Un lujo total! Gracias a este software, empecé a ganar mucho más en las apuestas. Súper recomendado." },
+    { name: "Lucía Fernández", stars: "★★★★★", text: "Al principio dudaba, pero ahora me encanta. Las predicciones son muy precisas y ya recuperé la inversión. ¡Increíble!" },
+    { name: "Martín Costa", stars: "★★★★", text: "Lo probé y realmente funciona. Gané más plata que nunca. Excelente herramienta, ¡me cambió el juego!" },
+    { name: "Sofía Rodríguez", stars: "★★★★★", text: "Espectacular. La info está re bien explicada y se nota el análisis profesional. Muy confiable para apostar." },
+    { name: "Leo Ramírez", stars: "★★★★", text: "Gracias a DataSport Analytics pude ganar varias apuestas. Vale cada peso invertido. Altamente recomendable." },
+    { name: "Carla López", stars: "★★★★★", text: "No me imaginé que iba a ser tan preciso. Las recomendaciones de partidos son buenísimas. ¡Apostar es mucho más seguro ahora!" },
+    { name: "Pablo Ibáñez", stars: "★★★★★", text: "Esto no es humo, la data es súper confiable. Ya gané varias apuestas, la plataforma es muy completa y fácil de usar." },
+    { name: "Verónica García", stars: "★★★★★", text: "La mejor inversión que hice para mis apuestas. Las estadísticas y recomendaciones son perfectas. ¡La rompe!" },
+    { name: "Nicolás Gutiérrez", stars: "★★★★★", text: "Es una herramienta profesional. Ahora puedo hacer apuestas con más confianza. Muy buena experiencia." },
+    { name: "Mariana Sosa", stars: "★★★★★", text: "Sinceramente, no esperaba tanto. Me ayudó a ganar varias apuestas. ¡Se nota la seriedad detrás del producto!" },
+    { name: "Ramiro Suárez", stars: "★★★★", text: "Tremenda herramienta. Ya la usé para varias apuestas y gané mucho más de lo esperado. Altamente recomendable." },
+    { name: "Ana Pérez", stars: "★★★★★", text: "No puedo creer la precisión que tiene. Me ayudó a ganar de manera constante. ¡Un 10 para este software!" },
+    { name: "Federico Romero", stars: "★★★★★", text: "Vale cada peso que pagué. Gané más en un mes que en todo el año pasado. Impresionante." },
+    { name: "Paula Méndez", stars: "★★★★★", text: "Te da la info justa para tomar buenas decisiones. Muy profesional y efectivo, estoy feliz con los resultados." },
+    { name: "Gustavo Herrera", stars: "★★★★★", text: "Este software me cambió las apuestas. Gano mucho más y las probabilidades son precisas. ¡Es lo mejor!" },
+    { name: "Carolina Ruiz", stars: "★★★★", text: "El mejor soporte y las mejores recomendaciones. Estoy ganando y se nota la calidad del servicio." },
+    { name: "Héctor Morales", stars: "★★★★★", text: "Hace meses que uso esta herramienta y me va excelente. Me dio confianza para apostar con más seguridad." },
+    { name: "Belén Vargas", stars: "★★★★★", text: "Muy fácil de usar y los resultados hablan por sí solos. Estoy ganando más que nunca." },
+    { name: "Diego Ramírez", stars: "★★★★★", text: "Súper útil para apostar. Antes era todo intuición, ahora tengo datos serios. ¡Y se nota en las ganancias!" },
+    { name: "Laura López", stars: "★★★★", text: "Increíble la precisión. Vale la pena cada centavo, estoy ganando más de lo que imaginé." }
+];
+
+function changeReview(direction) {
+    currentReview = (currentReview + direction + reviews.length) % reviews.length;
+    document.querySelector(".review-text h3").innerText = reviews[currentReview].name;
+    document.querySelector(".stars").innerText = reviews[currentReview].stars;
+    document.querySelector(".review-text p").innerText = reviews[currentReview].text;
+}
+
+</script>
+</html>
